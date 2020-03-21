@@ -5,6 +5,9 @@ import urllib.request
 
 cooler_instances = []
 
+# todo: create interface for creating simulated coolers. the cooler object created here will use data from the database
+# todo: allow user to launch the simulator script as a service that runs in the background
+# todo: allow user
 
 class Cooler:
     def __init__(self, cooler, humidity, temperature, location_lat, location_long, door_opens):
