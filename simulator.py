@@ -5,6 +5,7 @@ import urllib.request
 
 cooler_instances = []
 
+
 # todo: create interface for creating simulated coolers. the cooler object created here will use data from the database
 # todo: allow user to launch the simulator script as a service that runs in the background
 # todo: allow user
@@ -36,6 +37,7 @@ print(''''
 sleep_time = 30
 while 1:
     print("\nSleep For ", sleep_time, 'Seconds\n')
+    counter = 0
     time.sleep(sleep_time)
     # instances of the class
     # this could be automated since we can create dynamic classes in python
@@ -53,6 +55,7 @@ while 1:
     for instance in cooler_instances:
         # cool way of getting the class name
         # print(Obj.__class__.__name__)
+        print("cooler _ ", instance.cooler)
         body = {
             "cooler": instance.cooler,
             "humidity": instance.humidity,
@@ -72,3 +75,10 @@ while 1:
 
         if response.getcode() == 201:
             print("Success...\n")
+            counter += 1
+
+    # remove all values from cooler_instances
+    cooler_instances = []
+
+    print("**** ended loop with ", counter)
+    counter = 0
